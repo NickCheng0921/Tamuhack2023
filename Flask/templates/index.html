@@ -8,9 +8,16 @@
 <body>
    <h1>TAMUHACK 2023</h1>
    <!-- <img src="{{url_for('static', filename='image/ba9828c28b934bae2329257811bf364d.png')}}" /> -->
-   <label for="imageInput">What are you looking for?<br><br></label>
-    <input type="text" id="imageInput" name="imageInput"><br><br>
-   <label for="images">Upload an image: </label><br><br>
+   <form action="{{ url_for('sendRequest') }}" method="post">
+    <label for="title">What are you looking for?<br><br></label>
+    <br>
+    <input type="text" name="title"
+           placeholder="Message title"
+           value="{{ request.form['title'] }}"></input>
+    <br>
+    <button type="submit">Submit</button>
+</form>
    <input type="file" id="images" name="images" accept="image/png, image/jpg">
 </body>
+
 </html>
